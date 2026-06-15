@@ -120,6 +120,6 @@ Run `testing/test.sh` or `testing/test.ps1` to do the same.
 
 ## TODO
 
-[ ] Add more advanced styling (xor|zorz)
-[ ] More appealing transformation function (just look at it)
-[ ] Add it to Linux distro repos?
+- [ ] Add more advanced styling (xor|zorz)
+- [ ] More appealing transformation function (just look at it)
+- [ ] Add it to Linux distro repos?
