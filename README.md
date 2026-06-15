@@ -22,11 +22,18 @@ now you have `leeter` (or `leeter.exe` on Windows), add it to PATH, or
 just run it:
 
 ```bash
-$ ./leeter
+$ leeter
+
+ _    ___ ___ _____ ___ ___
+| |  | __| __|_   _| __| _ \
+| |__| _|| _|  | | | _||   /
+|____|___|___| |_| |___|_|_\
 
 733+3r, a program to convert boring words to hacker ones.
 SYNTAX:
-	C:\Users\SHAPeS\personal\leeter\leeter.exe [INPUT]
+    C:\Users\SHAPeS\personal\leeter\leeter.exe [OPTIONS] [INPUT]
+OPTIONS:
+    -f : Pass input as file, prints to stdout
 ```
 
 ## In action
