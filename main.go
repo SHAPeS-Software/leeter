@@ -1,9 +1,11 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 func transformIntoLeet(input string) string {
@@ -74,18 +76,20 @@ func transformIntoLeet(input string) string {
 }
 
 func main() {
+	input := flag.String("Input", "", "the text to convert.")
+	flag.Parse()
 
-	if len(os.Args) < 2 {
+	if *input == "" {
+		y := time.Now().Year()
+
 		fmt.Printf("733+3r, a program to convert boring words to hacker ones.\n")
+		fmt.Printf("Copyright (c) %d SHAPeS\n", y) // dont know why i did this but why not
 		fmt.Printf("SYNTAX:\n")
 		fmt.Printf("	%v [INPUT]\n", os.Args[0])
 		return
-
+	} else if len(*input) > 0 {
+		output := transformIntoLeet(*input)
+		fmt.Printf("Input: %s\n", *input)
+		fmt.Printf("Output: %s\n", output)
 	}
-
-	input := os.Args[1]
-
-	output := transformIntoLeet(input)
-	fmt.Printf("Input: %s\n", input)
-	fmt.Printf("Output: %s\n", output)
 }
