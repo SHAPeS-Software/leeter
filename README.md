@@ -8,6 +8,7 @@ boring human words into leet hacker ones.
 ## Features
 
 - leet word conversion
+- leet file conversion
 
 ## Building
 
@@ -24,7 +25,6 @@ just run it:
 $ ./leeter
 
 733+3r, a program to convert boring words to hacker ones.
-Copyright (c) 2026 SHAPeS
 SYNTAX:
 	C:\Users\SHAPeS\personal\leeter\leeter.exe [INPUT]
 ```
@@ -117,6 +117,19 @@ Output: r4$p83rrj
 ```
 
 Run `testing/test.sh` or `testing/test.ps1` to do the same.
+
+And `leeter`'s file feature on the project's `go.mod`:
+
+```bash
+$ leeter -f go.mod
+
+Input File: go.mod
+======
+Output:
+m0du73 733+3r
+
+60 1.25.5
+```
 
 ## TODO
 

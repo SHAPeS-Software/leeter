@@ -47,7 +47,7 @@ func transformIntoLeet(input string) string {
 		case 'n':
 			runes[i] = 'n'
 		case 'o':
-			runes[i] = '0' // classic
+			runes[i] = '0'
 		case 'r':
 			runes[i] = 'r'
 		case 's':
@@ -73,17 +73,49 @@ func transformIntoLeet(input string) string {
 	return res
 }
 
+func splashText() {
+	// awesome ascii text just because
+	fmt.Println(`
+ _    ___ ___ _____ ___ ___
+| |  | __| __|_   _| __| _ \
+| |__| _|| _|  | | | _||   /
+|____|___|___| |_| |___|_|_\`)
+	fmt.Printf("\n733+3r, a program to convert boring words to hacker ones.\n")
+	fmt.Printf("SYNTAX:\n")
+	fmt.Printf("    %v [OPTIONS] [INPUT]\n", os.Args[0])
+	fmt.Printf("OPTIONS:\n")
+	fmt.Printf("    -f : Pass input as file, prints to stdout\n")
+}
+
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Printf("733+3r, a program to convert boring words to hacker ones.\n")
-		fmt.Printf("SYNTAX:\n")
-		fmt.Printf("    %v [INPUT]\n", os.Args[0])
+		splashText()
 		return
+	} else {
+		if os.Args[1] == "-f" {
+			if len(os.Args) < 3 {
+				fmt.Printf("%v: Error: Argument of '-f' is empty.", os.Args[0])
+				splashText()
+				return
+			}
+			rawInput, err := os.ReadFile(string(os.Args[2]))
+			if err != nil {
+				fmt.Printf("%v: Error: Could not see %v, reason: %v\n", os.Args[0], os.Args[2], err)
+				return
+			}
+
+			input := string(rawInput)
+
+			output := transformIntoLeet(input)
+			fmt.Printf("Input File: %v\n", os.Args[2])
+			fmt.Printf("======\n")
+			fmt.Printf("Output:\n \b%s\n", output)
+		} else {
+			input := os.Args[1]
+
+			output := transformIntoLeet(input)
+			fmt.Printf("input: %s\n", input)
+			fmt.Printf("output: %s\n", output)
+		}
 	}
-
-	input := os.Args[1]
-
-	output := transformIntoLeet(input)
-	fmt.Printf("Input: %s\n", input)
-	fmt.Printf("Output: %s\n", output)
 }
